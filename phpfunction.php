@@ -25,4 +25,20 @@ echo '</pre>';
 echo '<br>';
 echo explode('、',$str2)[1];
 
+//implode
+echo '<br>';
+
+//正規表現
+//文字かどうか
+//数字かどうか
+//郵便番号
+//メアドかどうか
+$str_3 = '特定の文字列が含まれるか確認する';
+echo preg_match('/文字列/', $str_3);
+echo '<br>';
+//指定文字列から文字列を取得する
+echo substr('abcde', 1);
+echo '<br>';
+echo mb_substr('あいう', 1);
+
 ?>
