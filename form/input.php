@@ -114,6 +114,29 @@ if(!empty($_POST['btn_submit'])){
             メールアドレス
             <br>
             <?php echo h($_POST['email']); ?>
+            <br>
+            ホームページ
+            <?php echo h($_POST['url']); ?>
+            <br>
+            性別
+            <?php 
+                if($_POST['gender'] === '0') echo '男性';
+                if($_POST['gender'] === '1') echo '女性';
+            
+            ?>
+            <br>
+            年齢
+            <?php 
+                if($_POST['age'] === '1') echo '〜19歳';
+                elseif($_POST['age'] === '2') echo '20歳〜29歳';
+                elseif($_POST['age'] === '3') echo '30歳〜39歳';
+                elseif($_POST['age'] === '4') echo '40歳〜49歳';
+                elseif($_POST['age'] === '5') echo '50歳〜59歳';
+                elseif($_POST['age'] === '6') echo '60歳〜69歳';
+            ?>
+            <br>
+            お問い合わせ内容
+            <?php echo h($_POST['contact']); ?>
 
             <br>
             <br>
@@ -121,6 +144,13 @@ if(!empty($_POST['btn_submit'])){
             <input type="submit" name="btn_submit" value="送信する">
             <input type="hidden" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
             <input type="hidden" name="email" value="<?php echo h($_POST['email']); ?>">
+            <input type="hidden" name="url" value="<?php echo h($_POST['url']); ?>">
+            <input type="hidden" name="gender" value="<?php echo h($_POST['gender']); ?>">
+            <input type="hidden" name="age" value="<?php echo h($_POST['age']); ?>">
+            <input type="hidden" name="contact" value="<?php echo h($_POST['contact']); ?>">
+
+
+
             <input type="hidden" name="csrf" value="<?php echo h($_POST['csrf']); ?>">
         </form>
     <?php endif; ?>
