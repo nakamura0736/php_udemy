@@ -3,6 +3,8 @@
 //CSRF 偽物のinput.phpと本物のinput.phpを見分ける！
 session_start();
 
+require 'validation.php';
+
 header('X-FRAME-OPTIONS:DENY');
 
 //セキュリティ対策 XSS(Cross-Site Scripting) サニタイズ
@@ -24,8 +26,9 @@ echo '<br>';
 
 
 $pageFlag = 0 ; //入力
+$error = validation($_POST);
 
-if(!empty($_POST['btn_confirm'])){
+if(!empty($_POST['btn_confirm']) && empty($error)){
     $pageFlag = 1 ; //確認
 }
 if(!empty($_POST['btn_submit'])){
@@ -50,6 +53,14 @@ if(!empty($_POST['btn_submit'])){
         }
         $token = $_SESSION['csrfToken'];
     ?>
+
+    <?php if(!empty($_POST['btn_confirm']) && !empty($error)): ?>
+        <ul>
+            <?php foreach($error as $value): ?>
+                <li><?php echo $value; ?></li>
+            <?php endforeach;?>
+        </ul>
+    <?php endif; ?>
 
     <form method="POST" action="input.php">
         氏名
