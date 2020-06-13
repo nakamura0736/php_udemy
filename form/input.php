@@ -74,7 +74,7 @@ if(!empty($_POST['btn_submit'])){
         <?php if(isset($_POST['email'])): ?>
             <input type="email" name="email" value="<?php echo h($_POST['email']); ?>">
         <?php else: ?>
-            <input type="text" name="email">
+            <input type="email" name="email">
         <?php endif; ?>
         <br>
         ホームページ
@@ -92,7 +92,7 @@ if(!empty($_POST['btn_submit'])){
         <br>
         年齢
         <select name="age">
-            <option value="">洗濯してください</option>
+            <option value="">選択してください</option>
             <option value="1">〜19歳</option>
             <option value="2">20歳〜29歳</option>
             <option value="3">30歳〜39歳</option>
@@ -102,7 +102,13 @@ if(!empty($_POST['btn_submit'])){
         </select>
         <br>
         お問い合わせ内容
-        <textarea name="contact" value="<?php echo h($_POST['contact']); ?>"></textarea>
+        <?php if(isset($_POST['contact'])): ?>
+
+            <textarea name="contact"><?php echo h($_POST['contact']); ?></textarea>
+        <?php else: ?>
+            <textarea name="contact"></textarea>
+        <?php endif; ?>
+
         <br>
         注意事項のチェック
         <br>
