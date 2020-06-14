@@ -61,7 +61,7 @@ if(!empty($_POST['btn_submit'])){
     }
     $token = $_SESSION['csrfToken'];
   ?>
-
+	
   <?php if(!empty($_POST['btn_confirm']) && !empty($error)): ?>
     <ul>
       <?php foreach($error as $value): ?>
@@ -70,48 +70,56 @@ if(!empty($_POST['btn_submit'])){
     </ul>
   <?php endif; ?>
 
+	<dvi class="container">
+	<div class="row">
+	<div class="col-md-6">
   <form method="POST" action="input.php">
-    氏名
-    <?php if(isset($_POST['your_name'])): ?>
-      <input type="text" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
-    <?php else: ?>
-      <input type="text" name="your_name">
-    <?php endif; ?>
-    <br>
-    メールアドレス
-    <?php if(isset($_POST['email'])): ?>
-      <input type="email" name="email" value="<?php echo h($_POST['email']); ?>">
-    <?php else: ?>
-      <input type="email" name="email">
-    <?php endif; ?>
-    <br>
-    ホームページ
-    <?php if(isset($_POST['url'])): ?>
+    <div class="form-group">
+      <label for="your_name" >氏名</label>
+      <?php if(isset($_POST['your_name'])): ?>
+        <input type="text" class="form-control" id="your_name" name="your_name" value="<?php echo h($_POST['your_name']); ?>" required>
+      <?php else: ?>
+        <input type="text" class="form-control" id="your_name" name="your_name" required>
+      <?php endif; ?>
+    </div>
 
-      <input type="url" name="url" value="<?php echo h($_POST['url']); ?>">
-    <?php else: ?>
-      <input type="url" name="url">
-    <?php endif; ?>
+    <div class="form-group">
+			<label for="email">メールアドレス</label>
+			<?php if(isset($_POST['email'])): ?>
+				<input type="email" class="form-control" id="email" name="email" value="<?php echo h($_POST['email']); ?>" required>
+			<?php else: ?>
+				<input type="email" class="form-control" id="email" name="email" required>
+			<?php endif; ?>
+    </div>
 
-    <br>
-    性別
-    <input type="radio" name="gender" value="0">男性</input>
-    <input type="radio" name="gender" value="1">女性</input>
-    <br>
+    <div class="form-group">
+			<label for="url" >ホームページ</label>
+			<?php if(isset($_POST['url'])): ?>
+				<input type="url" class="form-control" id="url" name="url" value="<?php echo h($_POST['url']); ?>">
+			<?php else: ?>
+				<input type="url" class="form-control" id="url" name="url">
+			<?php endif; ?>
+    </div>
+
+		<div class="form-check form-check-inline">性別
+			<input class="form-check-input" id="gender1" type="radio" name="gender" value="male">
+			<label class="form-check-label" for="gender1">男性</label>
+			<input  class="form-check-input" id="gender2" type="radio" name="gender" value="female">
+			<label class="form-check-label" for="gender2">女性</label>
+    </div>
     年齢
     <select name="age">
-      <option value="">選択してください</option>
-      <option value="1">〜19歳</option>
-      <option value="2">20歳〜29歳</option>
-      <option value="3">30歳〜39歳</option>
-      <option value="4">40歳〜49歳</option>
-      <option value="5">50歳〜59歳</option>
-      <option value="6">60歳〜69歳</option>
+    <option value="">選択してください</option>
+    <option value="1">〜19歳</option>
+    <option value="2">20歳〜29歳</option>
+    <option value="3">30歳〜39歳</option>
+    <option value="4">40歳〜49歳</option>
+    <option value="5">50歳〜59歳</option>
+    <option value="6">60歳〜69歳</option>
     </select>
     <br>
     お問い合わせ内容
     <?php if(isset($_POST['contact'])): ?>
-
       <textarea name="contact"><?php echo h($_POST['contact']); ?></textarea>
     <?php else: ?>
       <textarea name="contact"></textarea>
@@ -126,6 +134,9 @@ if(!empty($_POST['btn_submit'])){
     <input type="submit" name="btn_confirm" value="確認する">
     <input type="hidden" name="csrf" value="<?php echo $token ?>" >
   </form>
+	</div>
+	</div>
+	</div>
 <?php endif; ?>
 
 <!-- 確認画面 -->
