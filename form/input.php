@@ -48,7 +48,7 @@ if(!empty($_POST['btn_submit'])){
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-  <title>Hello, world!</title>
+  <title>フォーム</title>
 </head>
 <body>
 
@@ -107,36 +107,40 @@ if(!empty($_POST['btn_submit'])){
 			<input  class="form-check-input" id="gender2" type="radio" name="gender" value="female">
 			<label class="form-check-label" for="gender2">女性</label>
     </div>
-    年齢
-    <select name="age">
-    <option value="">選択してください</option>
-    <option value="1">〜19歳</option>
-    <option value="2">20歳〜29歳</option>
-    <option value="3">30歳〜39歳</option>
-    <option value="4">40歳〜49歳</option>
-    <option value="5">50歳〜59歳</option>
-    <option value="6">60歳〜69歳</option>
-    </select>
-    <br>
-    お問い合わせ内容
-    <?php if(isset($_POST['contact'])): ?>
-      <textarea name="contact"><?php echo h($_POST['contact']); ?></textarea>
-    <?php else: ?>
-      <textarea name="contact"></textarea>
-    <?php endif; ?>
 
-    <br>
-    注意事項のチェック
-    <br>
-    <input type="checkbox" name="caution" value="1">注意事項にチェックする
-    <br>
-    <br>
-    <input type="submit" name="btn_confirm" value="確認する">
+		<div class="form-group">
+    	<label for="age">年齢</label>
+			<select class="form-control" id="age" name="age">
+				<option value="">選択してください</option>
+				<option value="1">〜19歳</option>
+				<option value="2">20歳〜29歳</option>
+				<option value="3">30歳〜39歳</option>
+				<option value="4">40歳〜49歳</option>
+				<option value="5">50歳〜59歳</option>
+				<option value="6">60歳〜69歳</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="contact">お問い合わせ内容</label>
+			<?php if(isset($_POST['contact'])): ?>
+				<textarea class="form-control" id="contact" name="contact" rows="3"><?php echo h($_POST['contact']); ?></textarea>
+			<?php else: ?>
+				<textarea class="form-control" id="contact" name="contact" rows="3"></textarea>
+			<?php endif; ?>
+		</div>
+
+		<div class="form-check">
+			<input class="form-check-input" type="checkbox" id="caution" name="caution" value="1">
+			<label class="form-check-label" for="caution">注意事項にチェックする</label>
+		</div>
+
+    <input class="btn btn-info" type="submit" name="btn_confirm" value="確認する">
     <input type="hidden" name="csrf" value="<?php echo $token ?>" >
   </form>
-	</div>
-	</div>
-	</div>
+	</div><!--class="container" -->
+	</div><!--class="row" -->
+	</div><!--class="col-md-6" -->
 <?php endif; ?>
 
 <!-- 確認画面 -->
