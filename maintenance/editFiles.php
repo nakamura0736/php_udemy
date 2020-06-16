@@ -9,6 +9,7 @@ echo $fileContents;
 //ファイルに書き込み(上書き)
 // file_put_contents($coontactFile, 'テスト');
 
+//改行はバックスラッシュ(option(command) + ¥) n 
 $addText = 'テストです' . "\n";
 
 //ファイルに書き込み(追記)
