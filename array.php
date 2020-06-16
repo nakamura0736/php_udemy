@@ -49,7 +49,7 @@ $array_member3 = [
             'hobby' => 'サッカー'            
         ]
     ]
-        ];
+];
 
 // echo $array[0];
 echo '<pre>';
