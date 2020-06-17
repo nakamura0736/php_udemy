@@ -146,40 +146,44 @@ if(!empty($_POST['btn_submit'])){
 <!-- 確認画面 -->
 <?php if($pageFlag===1): ?>
   <?php if($_POST['csrf'] === $_SESSION['csrfToken']) : ?>
+    <dvi class="container">
+    <div class="row">
+    <div class="col-md-6">
     <form method="POST" action="input.php">
-      名前
-      <br>
-      <?php echo h($_POST['your_name']); ?>
-      <br>
-      メールアドレス
-      <br>
-      <?php echo h($_POST['email']); ?>
-      <br>
-      ホームページ
-      <?php echo h($_POST['url']); ?>
-      <br>
-      性別
-      <?php 
-        if($_POST['gender'] === '0') echo '男性';
-        if($_POST['gender'] === '1') echo '女性';
-      
-      ?>
-      <br>
-      年齢
-      <?php 
-        if($_POST['age'] === '1') echo '〜19歳';
-        elseif($_POST['age'] === '2') echo '20歳〜29歳';
-        elseif($_POST['age'] === '3') echo '30歳〜39歳';
-        elseif($_POST['age'] === '4') echo '40歳〜49歳';
-        elseif($_POST['age'] === '5') echo '50歳〜59歳';
-        elseif($_POST['age'] === '6') echo '60歳〜69歳';
-      ?>
-      <br>
-      お問い合わせ内容
-      <?php echo h($_POST['contact']); ?>
-
-      <br>
-      <br>
+      <div class="form-group">
+        <label for="your_name" >氏名</label>
+        <input type="text" class="form-control" id="your_name" name="your_name" value="<?php echo h($_POST['your_name']); ?>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="email">メールアドレス</label>
+        <input type="email" class="form-control" id="email" name="email" value="<?php echo h($_POST['email']); ?>" readonly>
+      </div>
+      <div class="form-group">
+        <label for="url">ホームページ</label>
+        <input type="url" class="form-control" id="url" name="url" value="<?php echo h($_POST['url']); ?>" readonly>
+      </div>
+      <div class="form-group">
+        性別
+        <?php 
+          if($_POST['gender'] === 'male') echo '男性';
+          if($_POST['gender'] === 'female') echo '女性';
+        ?>
+      </div>
+      <div class="form-group">
+    	  <label for="age">年齢</label>
+        <?php 
+          if($_POST['age'] === '1') echo '〜19歳';
+          elseif($_POST['age'] === '2') echo '20歳〜29歳';
+          elseif($_POST['age'] === '3') echo '30歳〜39歳';
+          elseif($_POST['age'] === '4') echo '40歳〜49歳';
+          elseif($_POST['age'] === '5') echo '50歳〜59歳';
+          elseif($_POST['age'] === '6') echo '60歳〜69歳';
+        ?>
+      </div>
+        <div class="form-group">
+          <label for="contact">お問い合わせ内容</label>
+          <textarea class="form-control" id="contact" name="contact" rows="3" readonly><?php echo h($_POST['contact']); ?></textarea>
+      </div>
       <input type="submit" class="btn btn-success" name="back" value="戻る">
       <input type="submit" class="btn btn-success" name="btn_submit" value="送信する">
       <input type="hidden" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
@@ -191,6 +195,9 @@ if(!empty($_POST['btn_submit'])){
 
       <input type="hidden" name="csrf" value="<?php echo h($_POST['csrf']); ?>">
     </form>
+    </div>
+    </div>
+    </div>
   <?php endif; ?>
 <?php endif; ?>
 
