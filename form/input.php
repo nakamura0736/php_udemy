@@ -101,11 +101,15 @@ if(!empty($_POST['btn_submit'])){
 			<?php endif; ?>
     </div>
 
-		<div class="form-check form-check-inline">性別
-			<input class="form-check-input" id="gender1" type="radio" name="gender" value="male">
-			<label class="form-check-label" for="gender1">男性</label>
-			<input  class="form-check-input" id="gender2" type="radio" name="gender" value="female">
-			<label class="form-check-label" for="gender2">女性</label>
+		<div class="form-group">
+      <p class="control-label">性別</p>
+
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" id="gender1" type="radio" name="gender" value="male">
+        <label class="form-check-label" for="gender1">男性</label>
+        <input  class="form-check-input" id="gender2" type="radio" name="gender" value="female">
+        <label class="form-check-label" for="gender2">女性</label>
+      </div>
     </div>
 
 		<div class="form-group">
@@ -180,9 +184,9 @@ if(!empty($_POST['btn_submit'])){
           elseif($_POST['age'] === '6') echo '60歳〜69歳';
         ?>
       </div>
-        <div class="form-group">
-          <label for="contact">お問い合わせ内容</label>
-          <textarea class="form-control" id="contact" name="contact" rows="3" readonly><?php echo h($_POST['contact']); ?></textarea>
+      <div class="form-group">
+        <label for="contact">お問い合わせ内容</label>
+        <textarea class="form-control" id="contact" name="contact" rows="3" readonly><?php echo h($_POST['contact']); ?></textarea>
       </div>
       <input type="submit" class="btn btn-success" name="back" value="戻る">
       <input type="submit" class="btn btn-success" name="btn_submit" value="送信する">
