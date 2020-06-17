@@ -135,7 +135,7 @@ if(!empty($_POST['btn_submit'])){
 			<label class="form-check-label" for="caution">注意事項にチェックする</label>
 		</div>
 
-    <input class="btn btn-info" type="submit" name="btn_confirm" value="確認する">
+    <input class="btn btn-success" type="submit" name="btn_confirm" value="確認する">
     <input type="hidden" name="csrf" value="<?php echo $token ?>" >
   </form>
 	</div><!--class="container" -->
@@ -180,8 +180,8 @@ if(!empty($_POST['btn_submit'])){
 
       <br>
       <br>
-      <input type="submit" name="back" value="戻る">
-      <input type="submit" name="btn_submit" value="送信する">
+      <input type="submit" class="btn btn-success" name="back" value="戻る">
+      <input type="submit" class="btn btn-success" name="btn_submit" value="送信する">
       <input type="hidden" name="your_name" value="<?php echo h($_POST['your_name']); ?>">
       <input type="hidden" name="email" value="<?php echo h($_POST['email']); ?>">
       <input type="hidden" name="url" value="<?php echo h($_POST['url']); ?>">
